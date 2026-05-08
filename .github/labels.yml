@@ -38,7 +38,10 @@
   color: "FBCA04"
   description: "一般小功能 / 偶发问题 / 触发面窄"
 
-# ---------- area ----------（请按本项目实际模块改）
-- name: "area:placeholder"
+# ---------- area ----------
+- name: "area:asset-extract"
   color: "BFD4F2"
-  description: "请按本项目实际模块替换此条 area: 标签"
+  description: "从游戏安装中提取人物模型 / 场景资产"
+- name: "area:motion-extract"
+  color: "BFD4F2"
+  description: "从视频中提取人体动作 (motion capture)"
