@@ -26,7 +26,7 @@
 
 ## P2 — 一般小功能小修复
 
-(暂无)
+- [#4 \[Spike\] 面部表情 mocap pipeline 可行性调研](https://github.com/pkulijing/tlou-dance/issues/4) · `type:feat` `area:motion-extract` —— 整活视频脸僵会损喜剧效果，但身体动作就够成立 → 不阻塞核心管线，作为后续增强项
 
 ## 已完成 / 不再追踪
 
