@@ -1,4 +1,5 @@
-# normalized/ 装 Mixamo retarget 后的最终 .fbx (单文件通常 5-30 MB)。
-# 默认 gitignore；如某文件确认要随项目走，在此用 ! 显式 allow。
+# normalized/ 装 Mixamo retarget 后的最终 .fbx —— spike 唯一不能从 URL 重生成的产物。
+# *.fbx 走 git-lfs 管理（见项目根 .gitattributes），其他临时文件不入 git。
 *
 !.gitignore
+!*.fbx
