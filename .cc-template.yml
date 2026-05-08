@@ -1,0 +1,11 @@
+# 由 sync-project-config 维护；详见 ~/.claude/global-repo/docs/11-跨项目共享模板与sync-skill/SCHEMA.md
+template_commit: d3657fb4d4f0236dfc98413c37d984482ed80b07
+bootstrap_time: 2026-05-08T21:03:21+08:00
+source: git@github.com:pkulijing/claude-code-global.git
+stacks:
+  - stack: python-uv
+    path: .
+    skipped:
+      - file: __subpath__/pyproject.toml.ruff.fragment
+        skipped_at_commit: d3657fb4d4f0236dfc98413c37d984482ed80b07
+        reason: 项目尚无 pyproject.toml；uv init 后再次跑 /sync-project-config 触发 [tool.ruff] 段合并
