@@ -1,0 +1,19 @@
+=== INSPECT: 1 file(s) ===
+  loading: /home/jing/Developer/tlou-dance/data/round-0/normalized/tess.fbx
+FBX version: 7700
+
+=== mesh objects: 1 ===
+  - tess: verts=150279 faces=217488
+  TOTAL: verts=150279 faces=217488
+
+=== armatures: 1 ===
+  - Armature: bones=65
+    sample: ['mixamorig:Hips', 'mixamorig:Spine', 'mixamorig:Spine1', 'mixamorig:Spine2', 'mixamorig:Neck', 'mixamorig:Head', 'mixamorig:HeadTop_End', 'mixamorig:LeftShoulder', 'mixamorig:LeftArm', 'mixamorig:LeftForeArm', 'mixamorig:LeftHand', 'mixamorig:LeftHandThumb1']
+
+=== materials: 0 ===
+
+=== images (textures): 0 ===
+  missing on disk: 0
+Blender 4.5.9 LTS (hash 8bf95cbd38d1 built 2026-04-21 01:31:15)
+
+Blender quit

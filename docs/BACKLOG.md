@@ -18,12 +18,11 @@
 
 ## P0 — 必须做
 
-- [#1 \[Spike\] 从 The Last of Us 游戏安装中提取主角人物模型的可行性调研](https://github.com/pkulijing/tlou-dance/issues/1) · `type:feat` `area:asset-extract` —— 项目门槛级前置之一，未跑通整条流水线无法启动
 - [#2 \[Spike\] 从《心愿便利贴》舞蹈视频中提取人物动作 (motion capture) 的可行性调研](https://github.com/pkulijing/tlou-dance/issues/2) · `type:feat` `area:motion-extract` —— 与 asset-extract 并列的另一门槛，未跑通无源动作可用
 
 ## P1 — 重大新功能
 
-(暂无)
+- [#3 贴图集成进 normalized FBX (Joel/Ellie/Tess)](https://github.com/pkulijing/tlou-dance/issues/3) · `type:feat` `area:asset-extract` —— round 0 spike 已交付灰模成品，最终视频渲染前必须挂上贴图
 
 ## P2 — 一般小功能小修复
 

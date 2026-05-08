@@ -114,6 +114,17 @@
 - raw archive 总计 ~1.5GB，加 `.gitignore` 不入 git
 - **Phase 1 待办**：(a) 三人合并 + 清理 multi-armature；(b) 从 `Textures/*.dds` 自动 wire 材质（推荐写脚本）；(c) Blender GUI 验证三项验收（mesh / 骨骼 / 贴图）；(d) 上 Mixamo retarget；(e) 导 normalized FBX
 
-### Phase 1（待开始）
+### Phase 1（已完成）
 
-- ……
+- 写 `scripts/blender/merge_for_mixamo.py`：每角色批量 import 多 FBX 部件 → 移除所有 armature modifier → 解 parent + apply transform → join 成单 mesh → 导出 mesh-only FBX 给 Mixamo
+- 三人各跑一遍，输出 FBX 都在 30MB Mixamo 上限内：Joel 7.1 / Ellie 5.5 / Tess 9.2 MB
+- Blender GUI 肉眼验收：Joel A-pose 标准，几何完整，截图通过
+- Mixamo Auto-Rigger 三人各跑（用户操作浏览器）：上传 FBX → marker（手腕/肘/膝/裆）→ 自动绑骨
+- 重新 inspect 三人，确认全部 **65 bone `mixamorig:*` 标准骨架**、单 mesh 单 armature；详见 `inspect-output/post-mixamo/{joel,ellie,tess}.txt`
+- 三人骨架结构 100% 一致 → Spike #2 BVH/SMPL 一份动作就能驱动三人
+
+### Phase 2（已完成）
+
+- 写 `SUMMARY.md`（Constitution 五段式：背景 / 实现方案 / 局限性 / 后续 TODO + 数据一览）
+- normalized FBX 走 git-lfs（项目级 `*.fbx`），共 28MB；raw 1.5GB 仍仅 INVENTORY 留 URL
+- `docs/BACKLOG.md` 移除 #1 索引；commit 含 `Closes #1` 触发 GitHub 自动关 issue（合到 master 后生效）
