@@ -1,0 +1,5 @@
+# raw 是 ~1.4GB 原始 fan port 资产，体积过大不进 git。
+# 来源 URL 与每包文件清单见同级 INVENTORY.md，可重新下载复现。
+*
+!.gitignore
+!INVENTORY.md

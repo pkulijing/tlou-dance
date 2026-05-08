@@ -38,3 +38,7 @@ htmlcov/
 .DS_Store
 Thumbs.db
 .vscode/*.log
+
+# Claude Code 本地状态（per-user 权限、worktree 元数据等）
+.claude/settings.local.json
+.claude/worktrees/

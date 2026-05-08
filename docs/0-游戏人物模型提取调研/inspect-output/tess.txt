@@ -1,0 +1,49 @@
+=== INSPECT: 1 file(s) ===
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/tess/TLOU Part1 - Tess/tess.mesh.fbx
+FBX version: 7400
+
+=== mesh objects: 31 ===
+  - arm_tess_arms_01_u1_g1_LODShape0_shader0_merged_partition0: verts=8190 faces=14688
+  - arm_tess_arms_01_u1_g1_LODShape0_shader0_merged_partition1: verts=7137 faces=12572
+  - backpack_tess_bkpk_01_u1_g1_LODShape0_shader0_merged_partition0: verts=8189 faces=11703
+  - backpack_tess_bkpk_01_u1_g1_LODShape0_shader0_merged_partition1: verts=7861 faces=11192
+  - backpack_tess_bkpk_01_u1_g1_LODShape0_shader0_merged_partition2: verts=8182 faces=12460
+  - backpack_tess_bkpk_01_u1_g1_LODShape0_shader0_merged_partition3: verts=7012 faces=10199
+  - backpack_tess_bkpk_01_u1_g1_LODShape0_shader0_merged_partition4: verts=4726 faces=6383
+  - boots_tess_boot_01_u1_g1_LODShape0_shader0_merged_partition0: verts=4831 faces=7314
+  - caruncle_tess_head_01_u1_g1_LODShape0_shader7_merged_partition0: verts=138 faces=226
+  - eyeballs_tess_head_01_u1_g1_LODShape0_shader3_merged_partition0: verts=1742 faces=3264
+  - eyebrows_tess_head_01_u1_g1_LODShape0_shader0_merged_partition0: verts=1016 faces=762
+  - eyelashes_tess_head_01_u1_g1_LODShape0_shader1_merged_p_0338949: verts=3194 faces=3430
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader1_merged_p_f51ec6a: verts=5747 faces=8040
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader2_merged_p_0f7ab91: verts=4702 faces=4879
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader2_merged_p_449a074: verts=6821 faces=6464
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader2_merged_p_6aaff9b: verts=8133 faces=8181
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader2_merged_p_976d63c: verts=8112 faces=8336
+  - hair_tess_hair_01_u1_g1_lod0_LODShape0_shader3_merged_p_749da4c: verts=752 faces=734
+  - head_tess_head_01_u1_g1_LODShape0_shader2_merged_partition0: verts=8162 faces=15310
+  - head_tess_head_01_u1_g1_LODShape0_shader2_merged_partition1: verts=6300 faces=11834
+  - pants_tess_pnt_01_u1_g1_LODShape0_shader1_merged_partition0: verts=8189 faces=11366
+  - pants_tess_pnt_01_u1_g1_LODShape0_shader1_merged_partition1: verts=1291 faces=1749
+  - saliva_tess_head_01_u1_g1_LODShape0_shader4_merged_partition0: verts=1260 faces=1792
+  - scarf_tess_hair_01_u1_g1_lod0_LODShape0_shader0_merged__12279f3: verts=2083 faces=3682
+  - shirt_tess_shirt_01_u1_g1_LODShape0_shader0_merged_partition0: verts=8170 faces=11339
+  - shirt_tess_shirt_01_u1_g1_LODShape0_shader0_merged_partition1: verts=2092 faces=2713
+  - shirt_tess_shirt_01_u1_g1_LODShape0_shader1_merged_partition0: verts=762 faces=498
+  - tanktop_tess_shirt_01_u1_g1_LODShape0_shader2_merged_partition0: verts=2694 faces=3568
+  - tear_tess_head_01_u1_g1_LODShape0_shader5_merged_partition0: verts=445 faces=686
+  - teeth_tess_head_01_u1_g1_LODShape0_shader6_merged_partition0: verts=8176 faces=14619
+  - teeth_tess_head_01_u1_g1_LODShape0_shader6_merged_partition1: verts=4170 faces=7505
+  TOTAL: verts=150279 faces=217488
+
+=== armatures: 1 ===
+  - root: bones=1918
+    sample: ['spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end', 'headb_helper']
+
+=== materials: 0 ===
+
+=== images (textures): 0 ===
+  missing on disk: 0
+Blender 4.5.9 LTS (hash 8bf95cbd38d1 built 2026-04-21 01:31:15)
+
+Blender quit

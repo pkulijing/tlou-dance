@@ -1,0 +1,68 @@
+=== INSPECT: 6 file(s) ===
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-body.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-head.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-arms.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-hair-cloth.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-jacket-cloth.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/ellie/TLOU2 - Ellie (Seattle)/ellie-backpack.fbx
+FBX version: 7400
+
+=== mesh objects: 30 ===
+  - submesh_0: verts=2195 faces=4011
+  - submesh_0.001: verts=367 faces=468
+  - submesh_0.002: verts=6099 faces=12162
+  - submesh_0.003: verts=756 faces=1304
+  - submesh_0.004: verts=6956 faces=11002
+  - submesh_0.005: verts=32 faces=24
+  - submesh_1: verts=5123 faces=8481
+  - submesh_1.001: verts=2266 faces=2104
+  - submesh_1.002: verts=6128 faces=12220
+  - submesh_1.003: verts=6062 faces=8819
+  - submesh_1.004: verts=2754 faces=4736
+  - submesh_1.005: verts=7108 faces=10064
+  - submesh_2: verts=4474 faces=8178
+  - submesh_2.001: verts=138 faces=226
+  - submesh_2.002: verts=780 faces=969
+  - submesh_2.003: verts=931 faces=921
+  - submesh_2.004: verts=2914 faces=3932
+  - submesh_3: verts=385 faces=280
+  - submesh_3.001: verts=1666 faces=3264
+  - submesh_3.002: verts=8010 faces=10779
+  - submesh_3.003: verts=1438 faces=1839
+  - submesh_4: verts=3580 faces=3876
+  - submesh_4.001: verts=390 faces=656
+  - submesh_4.002: verts=74 faces=76
+  - submesh_5: verts=326 faces=500
+  - submesh_5.001: verts=129 faces=144
+  - submesh_6: verts=8158 faces=15414
+  - submesh_6.001: verts=103 faces=164
+  - submesh_7: verts=3074 faces=5262
+  - submesh_8: verts=1366 faces=2556
+  TOTAL: verts=83782 faces=134431
+
+=== armatures: 6 ===
+  - Armature: bones=1845
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.001: bones=1845
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.002: bones=1845
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.003: bones=447
+    sample: ['root_hair_cloth', 'l_brow_44_hair_cloth', 'l_brow_44_hair_cloth_end', 'r_brow_44_hair_cloth', 'r_brow_44_hair_cloth_end', 'l_cheek_0_hair_cloth', 'l_cheek_0_hair_cloth_end', 'r_cheek_0_hair_cloth', 'r_cheek_0_hair_cloth_end', 'l_cheek_11_hair_cloth', 'l_cheek_11_hair_cloth_end', 'l_cheek_30_hair_cloth']
+  - Armature.004: bones=523
+    sample: ['root_jacket_cloth', 'm_twist_04_jacket_cloth', 'm_twist_04_jacket_cloth_end', 'l_scapula_helper_jacket_cloth', 'l_scapula_helper_jacket_cloth_end', 'r_scapula_helper_jacket_cloth', 'r_scapula_helper_jacket_cloth_end', 'l_trap_fix_helper_jacket_cloth', 'l_trap_fix_helper_jacket_cloth_end', 'r_trap_fix_helper_jacket_cloth', 'r_trap_fix_helper_jacket_cloth_end', 'm_roll_01_jacket_cloth']
+  - Armature.005: bones=1845
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+
+=== materials: 0 ===
+
+=== images (textures): 0 ===
+  missing on disk: 0
+Blender 4.5.9 LTS (hash 8bf95cbd38d1 built 2026-04-21 01:31:15)
+
+Blender quit

@@ -1,0 +1,76 @@
+=== INSPECT: 7 file(s) ===
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-body.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-head.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-pants.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-hair-cloth.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-backpack.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-backpack-jacket-cloth.fbx
+FBX version: 7400
+  loading: /home/jing/Developer/tlou-dance/docs/0-游戏人物模型提取调研/assets/raw/joel/TLOU2 - Joel (Jackson)/joel-backpack-strap-cloth.fbx
+FBX version: 7400
+
+=== mesh objects: 34 ===
+  - submesh_0: verts=4081 faces=6528
+  - submesh_0.001: verts=1624 faces=1168
+  - submesh_0.002: verts=6077 faces=10822
+  - submesh_0.003: verts=1915 faces=2612
+  - submesh_0.004: verts=6845 faces=11433
+  - submesh_0.005: verts=6369 faces=10833
+  - submesh_0.006: verts=71 faces=70
+  - submesh_1: verts=5162 faces=9660
+  - submesh_1.001: verts=2506 faces=2190
+  - submesh_1.002: verts=7350 faces=9215
+  - submesh_1.003: verts=6083 faces=10169
+  - submesh_1.004: verts=2050 faces=3084
+  - submesh_1.005: verts=835 faces=1290
+  - submesh_10: verts=3088 faces=5243
+  - submesh_11: verts=1367 faces=2556
+  - submesh_2: verts=5190 faces=9716
+  - submesh_2.001: verts=7761 faces=6288
+  - submesh_2.002: verts=7824 faces=10116
+  - submesh_2.003: verts=147 faces=106
+  - submesh_3: verts=2785 faces=4714
+  - submesh_3.001: verts=1029 faces=804
+  - submesh_3.002: verts=1932 faces=2329
+  - submesh_4: verts=1666 faces=3264
+  - submesh_4.001: verts=6849 faces=9432
+  - submesh_5: verts=3823 faces=2748
+  - submesh_5.001: verts=120 faces=96
+  - submesh_6: verts=1240 faces=1128
+  - submesh_6.001: verts=5358 faces=6988
+  - submesh_7: verts=138 faces=226
+  - submesh_7.001: verts=99 faces=124
+  - submesh_8: verts=234 faces=336
+  - submesh_8.001: verts=45 faces=56
+  - submesh_9: verts=8199 faces=15433
+  - submesh_9.001: verts=1201 faces=1756
+  TOTAL: verts=111063 faces=162533
+
+=== armatures: 7 ===
+  - Armature: bones=1548
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.001: bones=1548
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.002: bones=1548
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.003: bones=427
+    sample: ['root_hair_cloth', 'spined_hair_cloth', 'spined_hair_cloth_end', 'l_outereye_26_hair_cloth', 'l_outereye_26_hair_cloth_end', 'r_outereye_26_hair_cloth', 'r_outereye_26_hair_cloth_end', 'l_outereye_33_hair_cloth', 'l_outereye_33_hair_cloth_end', 'r_outereye_33_hair_cloth', 'r_outereye_33_hair_cloth_end', 'l_outereye_35_hair_cloth']
+  - Armature.004: bones=1548
+    sample: ['root', 'spinea', 'spineb', 'spinec', 'spined', 'neck', 'heada', 'headb', 'l_eyeball', 'l_eyeball_end', 'r_eyeball', 'r_eyeball_end']
+  - Armature.005: bones=555
+    sample: ['root_backpack_jacket_cloth', 'm_head_2_backpack_jacket_cloth', 'm_head_2_backpack_jacket_cloth_end', 'l_cheek_16_backpack_jacket_cloth', 'l_cheek_16_backpack_jacket_cloth_end', 'r_cheek_16_backpack_jacket_cloth', 'r_cheek_16_backpack_jacket_cloth_end', 'l_cheek_33_backpack_jacket_cloth', 'l_cheek_33_backpack_jacket_cloth_end', 'r_cheek_33_backpack_jacket_cloth', 'r_cheek_33_backpack_jacket_cloth_end', 'l_chin_8_backpack_jacket_cloth']
+  - Armature.006: bones=51
+    sample: ['root_backpack_strap_cloth', 'l_clavicle_backpack_strap_cloth', 'l_clavicle_backpack_strap_cloth_end', 'r_clavicle_backpack_strap_cloth', 'r_clavicle_backpack_strap_cloth_end', 'backpack_fatconst_driver_backpack_strap_cloth', 'backpack_fatconst_driver_backpack_strap_cloth_end', 'l_scapula_helper_backpack_strap_cloth', 'l_scapula_helper_backpack_strap_cloth_end', 'r_scapula_helper_backpack_strap_cloth', 'r_scapula_helper_backpack_strap_cloth_end', 'l_twist_00_backpack_strap_cloth']
+
+=== materials: 0 ===
+
+=== images (textures): 0 ===
+  missing on disk: 0
+Blender 4.5.9 LTS (hash 8bf95cbd38d1 built 2026-04-21 01:31:15)
+
+Blender quit
