@@ -1,0 +1,4 @@
+# normalized/ 装 Mixamo retarget 后的最终 .fbx (单文件通常 5-30 MB)。
+# 默认 gitignore；如某文件确认要随项目走，在此用 ! 显式 allow。
+*
+!.gitignore

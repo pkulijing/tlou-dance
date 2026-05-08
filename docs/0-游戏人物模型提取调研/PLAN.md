@@ -23,10 +23,10 @@
 
 > 全程 Linux 端本 clone 操作。开分支：`git checkout -b round/0-asset-extract`
 
-- 建目录：`docs/0-游戏人物模型提取调研/assets/raw/{joel,ellie,tess}/`
+- 建目录：`data/round-0/raw/{joel,ellie,tess}/`（重数据放项目根 `data/`，docs 只放文档）
 - 按上表 Sources 下三份模型包到对应目录（全部 DeviantArt + Yandex Disk 公开链，走 Yandex Disk API → curl）
 - 解压，记录每包实际文件构成（.fbx / .ascii / .smd / .blend / 贴图清单），写到工作日志
-- 早期 commit：`git add assets/raw && git commit -m "wip(round-0): 落原始模型 raw assets"`
+- 早期 commit：`git add data/round-0/raw/.gitignore data/round-0/raw/INVENTORY.md && git commit -m "wip(round-0): 落 raw INVENTORY"`（实际 raw archive 全部 gitignored）
 
 ### Phase 1 — Blender 验证 + Mixamo 骨骼统一（预计 半天）
 
@@ -40,7 +40,7 @@
    - 优先：上传到 [Mixamo](https://www.mixamo.com/) 走 auto-rig（账号免费，输出标准 `mixamorig:*` 命名）
    - 备选：本地用 [Auto-Rig Pro](https://blendermarket.com/products/auto-rig-pro)（付费）/ Blender 内置 Rigify
 3. **导出标准化 .fbx**：
-   - 落到 `assets/normalized/{joel,ellie,tess}.fbx`
+   - 落到 `data/round-0/normalized/{joel,ellie,tess}.fbx`
    - 文件名约定：小写英文名，便于后续脚本批量加载
 4. **截图存档**：每角色三张 — 正面 / 骨骼线框 / 材质渲染 — 落 `assets/screenshots/{joel,ellie,tess}-{angle}.png`
 
@@ -91,7 +91,7 @@
 **跨 OS 工作流（仅 Plan B/C 启动）**
 
 - Windows 端：`git clone git@github.com:pkulijing/tlou-dance.git D:\dev\tlou-dance`，checkout `round/0-asset-extract`
-- 自解包结果落 `assets/raw/{character}-from-game/`，commit + push
+- 自解包结果落 `data/round-0/raw/{character}-from-game/`，commit + push
 - Linux 端 `git pull` 后续 retarget；最终 SUMMARY 写在 Linux 端
 
 ## TDD 适用性
@@ -105,9 +105,9 @@
 ### Phase 0（已完成）
 
 - 建分支 `round/0-asset-extract`，起 `assets/{raw,normalized,screenshots}/` 目录树
-- 下载三人 raw 包，**全走 Yandex Disk public API**（curl + python3 解 JSON href）；详见 `assets/raw/INVENTORY.md`
+- 下载三人 raw 包，**全走 Yandex Disk public API**（curl + python3 解 JSON href）；详见 `data/round-0/raw/INVENTORY.md`
 - 中途切换 Ellie 来源：Open3DLab FrankDP1 (Rigify + FaceitRig，骨骼不匹配 + 78/79 贴图死链 + 疑似 young Ellie) → Crazy31139 TLOU2 Seattle（ND 原骨骼，与 Joel/Tess 同源）
-- 写 `scripts/inspect_model.py`（headless Blender，CLI: `blender --background --python ... -- file1 [file2 ...]`），跑出三人 inspect-output：
+- 写 `scripts/blender/inspect_model.py`（headless Blender，CLI: `blender --background --python ... -- file1 [file2 ...]`），跑出三人 inspect-output：
   - **Joel**：7 个 FBX 部件，ND 原骨骼 1548 bones，~111k verts；7 个重复 armature（Phase 1 需清理）
   - **Ellie (Seattle)**：12 个 FBX 部件，ND 原骨骼 1845 bones，~84k verts（采样 6/12 部件）；6 个 armature（含 hair/jacket 物理 sub-rig）
   - **Tess**：1 个合并 FBX (`tess.mesh.fbx`)，ND 原骨骼 1918 bones，~150k verts；1 个 armature ✨ 最干净

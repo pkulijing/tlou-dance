@@ -1,0 +1,4 @@
+# intermediate/ 装 Blender 合并 .blend / Mixamo 上传前 .fbx 等中间产物，
+# 体积一般 50-300 MB，全部 gitignore；要重建直接跑 scripts/blender/merge_for_mixamo.py
+*
+!.gitignore

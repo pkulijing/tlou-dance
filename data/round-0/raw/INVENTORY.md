@@ -2,7 +2,7 @@
 
 raw archive 体积总计 ~1.5 GB，**不入 git**（同级 `.gitignore`）。本文件记录来源 + 内容 + license，方便重新下载与可重复性追溯。
 
-下载脚本：见 SUMMARY.md 末尾或 `inspect-output/*.txt` 头部，全部走 Yandex Disk public API → curl。
+下载脚本：见本文末尾「重新下载脚本」段，全部走 Yandex Disk public API → curl。
 
 ## 三个角色全部来自同一艺术家 Crazy31139（DeviantArt）
 
@@ -19,7 +19,7 @@ raw archive 体积总计 ~1.5 GB，**不入 git**（同级 `.gitignore`）。本
   - `TLOU2 - Joel (Jackson)/SMD/*.smd` × 11（Source 引擎格式备份）
   - `TLOU2 - Joel (Jackson)/Textures/<部件>/` × 200+ .dds 贴图
   - `TLOU2 - Joel (Jackson)/Scene.tbscene`（Marmoset Toolbag 场景文件，可忽略）
-- **检查结果**（见 `../inspect-output/joel.txt`）：
+- **检查结果**（见 `docs/0-游戏人物模型提取调研/inspect-output/joel.txt`）：
   - 7 个 armature（每部件一份独立副本，**Phase 1 需要清理**只保留主 body armature）
   - 主 armature：1548 bones，ND 原命名
   - 总计 ~111k verts / 162k faces
@@ -33,7 +33,7 @@ raw archive 体积总计 ~1.5 GB，**不入 git**（同级 `.gitignore`）。本
   - `TLOU2 - Ellie (Seattle)/*.fbx` × 12（body / head / arms / hair-cloth / jacket-cloth / backpack / backpack-zip-cloth / bracelet / bandage / bandage-forearm / leg-holster / strand-hair-cloth + flashlight + gas-mask 配件）
   - `TLOU2 - Ellie (Seattle)/ASCII/*.ascii`（同款备份）
   - `TLOU2 - Ellie (Seattle)/Textures/`
-- **检查结果**（见 `../inspect-output/ellie.txt`）：
+- **检查结果**（见 `docs/0-游戏人物模型提取调研/inspect-output/ellie.txt`）：
   - 6 个 armature（含 hair-cloth / jacket-cloth 物理 sub-rig）
   - 主 armature：1845 bones，ND 原命名
   - 总计 ~84k verts / 134k faces（仅采样了 6/12 部件）
@@ -51,7 +51,7 @@ raw archive 体积总计 ~1.5 GB，**不入 git**（同级 `.gitignore`）。本
   - `TLOU Part1 - Tess/FBX/*.fbx` × 6（分部件备份）
   - `TLOU Part1 - Tess/ASCII/*.mesh.ascii` × 6
   - `TLOU Part1 - Tess/Textures/` × 200+ .dds（注意：**含若干 `ellie-*` 命名的贴图** —— 是 ND 在 Part 1 内 Tess 与 Ellie 共享 SSS / 表皮贴图集，正常现象）
-- **检查结果**（见 `../inspect-output/tess.txt`）：
+- **检查结果**（见 `docs/0-游戏人物模型提取调研/inspect-output/tess.txt`）：
   - 1 个 armature（已合并）：1918 bones，ND 原命名
   - 总计 ~150k verts / 217k faces
 
