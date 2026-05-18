@@ -19,3 +19,5 @@ repos:
       - id: check-yaml
       - id: check-toml
       - id: check-added-large-files
+        # uv.lock 本质是大文件且必须 commit（uv 官方推荐），exclude 之
+        exclude: '^uv\.lock$'

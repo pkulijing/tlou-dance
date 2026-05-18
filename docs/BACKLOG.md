@@ -18,7 +18,7 @@
 
 ## P0 — 必须做
 
-- [#2 \[Spike\] 从《心愿便利贴》舞蹈视频中提取人物动作 (motion capture) 的可行性调研](https://github.com/pkulijing/tlou-dance/issues/2) · `type:feat` `area:motion-extract` —— 与 asset-extract 并列的另一门槛，未跑通无源动作可用
+- [#2 \[Spike\] 从《心愿便利贴》舞蹈视频中提取人物动作 (motion capture) 的可行性调研](https://github.com/pkulijing/tlou-dance/issues/2) · `type:feat` `area:motion-extract` —— 与 asset-extract 并列的另一门槛；本轮 spike 失败（卡在 pyrender 渲染），issue 保留 open 待重启
 
 ## P1 — 重大新功能
 

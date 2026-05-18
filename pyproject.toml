@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "tlou-dance"
 version = "0.1.0"
@@ -6,13 +10,190 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.optional-dependencies]
+round1 = [
+    "torch==2.5.1",
+    "torchvision",
+    "torchaudio",
+    "smplx",
+    "opencv-python",
+    "ffmpeg-python",
+    "numpy<2",
+    "tqdm",
+    # 老 repo build 时需要的"幽灵 build deps"（setup.py 引用未声明的依赖）；
+    # 配合 [tool.uv] no-build-isolation-package 让它们 build 时用 venv 里的实例。
+    # chumpy 是另一类损坏的远古包（其 setup.py 引用了已废弃的 packaging 工具内部 API），
+    # 通过 [tool.uv.sources] 重定向到 umautobots/chumpy fork（见下方）。
+    "wheel",       # 通用
+    "ninja",       # detectron2 编译 CUDA 扩展需要
+    # setuptools<81: detectron2 0.6 在 model_zoo 里 import pkg_resources，setuptools 81+
+    # 把 pkg_resources 完全移除，导致 from detectron2 import model_zoo 直接崩。
+    "setuptools<81",
+    # 以下几个本是 hmr2/smplx 的间接依赖，但其 setup.py 缺 build deps（setuptools/torch），
+    # 必须显式提升为直接依赖，才能让下方 [tool.uv.extra-build-dependencies] 生效
+    # （uv 的 extra-build-dependencies 不对 transitive 生效）。
+    "chumpy",      # 由 [tool.uv.sources] 重定向到 umautobots fork
+    "neural-renderer-pytorch @ git+https://github.com/shubham-goel/NMR.git",
+    "hmr2 @ git+https://github.com/shubham-goel/4D-Humans.git",
+    "phalp @ git+https://github.com/brjathu/PHALP.git",
+    "detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
+]
+
 [dependency-groups]
 dev = [
-    "numpy>=2.4.4",
+    # numpy 约束放宽以兼容 round-1 round1 extras 的 numpy<2（HMR2/PHALP 等老依赖锁死）；
+    # round-2 normalize 模块若需 numpy 2 features 可单独走 extras。
+    "numpy>=1.20",
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/round1_motion"]
+
+# 允许 [project.optional-dependencies] 里出现 "<name> @ git+..." 形式的 direct reference。
+# hatchling 默认禁，因为这种依赖不能发布到 PyPI；但我们这是 spike 不发布，OK。
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+
+# NOTE: aliyun pytorch-wheels CDN 在 round 1 spike 期间因密集请求被 IP ACL 拉黑
+#       （403 Forbidden + "denied by IP ACL = blacklist"），改走 PyTorch 官方源。
+#       清华 mirror 不收 cu121 这个 channel；其他国内镜像无替代。
+#       Constitution 推荐的 aliyun 路线作为首选保留在文档中，下次解禁可切回。
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu121" }
+torchvision = { index = "pytorch-cu121" }
+torchaudio = { index = "pytorch-cu121" }
+# chumpy 官方版（mattloper/chumpy 0.70）setup.py 引用了已废弃的 packaging 工具内部 API，
+# 在新版工具链下 build 失败。重定向到 umautobots fork（@barcharcraz 维护，已修 Py3 兼容）。
+# pin 到具体 commit，避免 future commit 引入回归。
+chumpy = { git = "https://github.com/umautobots/chumpy.git", rev = "25c2019345e2365e69eb6072bda4a39f15a49328" }
+
+# 一批 "Setup.py 直接 import 未声明依赖" 的远古 repo（detectron2 / neural-renderer-pytorch /
+# hmr2 / phalp）。打地鼠加 extra-build-dependencies 不是办法，统一关掉 build isolation，
+# 直接用 .venv 已装好的 torch/wheel/ninja/setuptools 来 build。
+# 这些 build-time 依赖已在 round1 主 deps 中，uv 会先装它们再 build 下面这些包。
+# chumpy 用 distutils.core，Py3.12 下需要 setuptools 兜底（_distutils_hack），
+# 同样 no-build-isolation 走 .venv 里的 setuptools。
+[tool.uv]
+no-build-isolation-package = [
+    "detectron2",
+    "chumpy",
+    "neural-renderer-pytorch",
+    "hmr2",
+    "phalp",
+]
+
+# uv 在 lock 阶段先调 setup.py 的 prepare_metadata_for_build_wheel 取 metadata；
+# 这步**仍然走 build isolation**（不受 no-build-isolation-package 影响）。
+# 老 setup.py 里 import setuptools/torch 都没声明在 [build-system].requires，
+# 故须在此显式补上 build-isolation 临时环境的依赖。
+[tool.uv.extra-build-dependencies]
+chumpy = ["setuptools"]
+neural-renderer-pytorch = ["setuptools", "torch", "numpy<2"]
+detectron2 = ["setuptools", "torch", "numpy<2"]
+hmr2 = ["setuptools"]
+phalp = ["setuptools"]
+
+# === dependency-metadata：跳过这些 git+ 包的 metadata 阶段 setup.py 调用 ===
+# uv 0.11.11 实测：[tool.uv.extra-build-dependencies] 对**所有**包（直接/间接）都不生效，
+# metadata 阶段仍走 build isolation 临时 env，setuptools/torch 没装，setup.py 第一行就崩。
+# 唯一稳妥的破局：用 dependency-metadata 显式喂 metadata，让 uv 跳过 setup.py 调用。
+# requires-dist 直接抄自上游 setup.py 的 install_requires（**未来上游变更不会自动跟，需手动同步**）。
+# build wheel 阶段不受影响——已通过 no-build-isolation-package 走 .venv 实例。
+# chumpy 的 git+ URL 在间接依赖里都改写成普通 "chumpy"，让 [tool.uv.sources] 重定向接管。
+
+[[tool.uv.dependency-metadata]]
+name = "neural-renderer-pytorch"
+version = "1.1.3"
+requires-dist = []
+
+[[tool.uv.dependency-metadata]]
+name = "chumpy"
+version = "0.67.5"
+requires-dist = ["numpy>=1.8.1", "scipy>=0.13.0", "six"]
+
+[[tool.uv.dependency-metadata]]
+name = "hmr2"
+version = "0.0.0"
+requires-dist = [
+    "gdown",
+    "numpy",
+    "torch",
+    "torchvision",
+    "pytorch-lightning",
+    "smplx==0.1.28",
+    "pyrender",
+    "opencv-python",
+    "yacs",
+    "scikit-image",
+    "einops",
+    "timm",
+    "webdataset",
+    "dill",
+    "pandas",
+    "chumpy",
+]
+
+[[tool.uv.dependency-metadata]]
+name = "phalp"
+version = "0.1.3"
+requires-dist = [
+    "opencv-python",
+    "joblib",
+    "scikit-learn",
+    "pyrender",
+    "dill",
+    "rich",
+    "einops",
+    "scenedetect[opencv]",
+    "hydra-core",
+    "timm",
+    "av",
+    "smplx==0.1.28",
+    "numpy",
+    "detectron2",
+    "pytube @ git+https://github.com/pytube/pytube.git",
+    "pyopengl @ git+https://github.com/mmatl/pyopengl.git",
+    "chumpy",
+    "neural-renderer-pytorch @ git+https://github.com/shubham-goel/NMR.git",
+]
+
+[[tool.uv.dependency-metadata]]
+name = "detectron2"
+version = "0.6"
+requires-dist = [
+    "Pillow>=7.1",
+    "matplotlib",
+    "pycocotools>=2.0.2",
+    "termcolor>=1.1",
+    "yacs>=0.1.8",
+    "tabulate",
+    "cloudpickle",
+    "tqdm>4.29.0",
+    "tensorboard",
+    "fvcore>=0.1.5,<0.1.6",
+    "iopath>=0.1.7,<0.1.10",
+    "omegaconf>=2.1,<2.4",
+    "hydra-core>=1.1",
+    "black",
+    "packaging",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]
 
 [tool.ruff]
 line-length = 100
@@ -38,7 +219,3 @@ ignore = [
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
-
-[tool.pytest.ini_options]
-pythonpath = ["scripts"]
-testpaths = ["tests"]

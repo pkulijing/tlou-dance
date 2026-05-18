@@ -42,3 +42,22 @@ Thumbs.db
 # Claude Code 本地状态（per-user 权限、worktree 元数据等）
 .claude/settings.local.json
 .claude/worktrees/
+
+# === 项目运行时数据 / 输出（per-round 子目录隔离） ===
+data/
+outputs/
+
+# === 大媒体 / 模型权重通用扩展名 ===
+*.mp4
+*.bvh
+*.fbx
+*.pkl
+*.pth
+*.ckpt
+*.blend
+*.blend1
+*.glb
+
+# docs/ 资源里如有大动图也忽略（小 PNG/SVG 仍可 commit）
+docs/**/assets/*.mp4
+docs/**/assets/*.mov
