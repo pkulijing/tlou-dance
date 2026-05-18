@@ -1,0 +1,10 @@
+"""pytest 公共 fixtures。"""
+
+from pathlib import Path
+
+import pytest
+
+
+@pytest.fixture
+def fixtures_root() -> Path:
+    return Path(__file__).parent / "fixtures"
